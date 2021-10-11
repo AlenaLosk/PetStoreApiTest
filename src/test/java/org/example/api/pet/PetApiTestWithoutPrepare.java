@@ -1,6 +1,7 @@
 package org.example.api.pet;
 
 import com.google.gson.JsonObject;
+import io.restassured.config.ObjectMapperConfig;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import org.example.model.Pet;
@@ -13,15 +14,13 @@ import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
 
-//В этом классе реализован пример отправки запроса GET без использования спецификации запроса new RequestSpecBuilder(),
-//то есть все необходимые параметры переданы одинм методом
 public class PetApiTestWithoutPrepare {
     @Test
     public void testGet() throws IOException {
         // Читаем конфигурационный файл в System.properties
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("my.properties"));
         JsonObject pet = new JsonObject();
-        int id = new Random().nextInt(50000); // просто нужно создать произвольный айди
+        int id = new Random().nextInt(500); // просто нужно создать произвольный айди
         String name = "Pet_" + UUID.randomUUID().toString();
         pet.addProperty("name", name);
         pet.addProperty("id", id);
@@ -32,10 +31,9 @@ public class PetApiTestWithoutPrepare {
                 .accept(ContentType.JSON)// задаём заголовок accept
                 .contentType(ContentType.JSON)
                 .body(pet)
-                //(так как это просто пример, нужно убедиться, что объект с таким Id существует)
                 .log().all()//задаём логгирование запроса
                 .when()//КОГДА:
-                .post("/pet") // переменная petId подставится в путь ресурса перед выполнением запроса GET
+                .post("/pet")
                 .then()// ТОГДА:
                 .statusCode(200) //проверка кода ответа
                 .log().all(); //задаём логгирование ответа

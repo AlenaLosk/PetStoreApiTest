@@ -24,64 +24,64 @@ public class Pet{
 	@SerializedName("status")
 	private String status;
 
-	public void setPhotoUrls(List<String> photoUrls){
+	public void setPhotoUrls(List<String> photoUrls) {
 		this.photoUrls = photoUrls;
 	}
 
-	public List<String> getPhotoUrls(){
+	public List<String> getPhotoUrls() {
 		return photoUrls;
 	}
 
-	public void setName(String name){
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 
-	public void setId(int id){
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public int getId(){
+	public int getId() {
 		return id;
 	}
 
-	public void setCategory(Category category){
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
-	public Category getCategory(){
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setTags(List<TagsItem> tags){
+	public void setTags(List<TagsItem> tags) {
 		this.tags = tags;
 	}
 
-	public List<TagsItem> getTags(){
+	public List<TagsItem> getTags() {
 		return tags;
 	}
 
-	public void setStatus(String status){
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public String getStatus(){
+	public String getStatus() {
 		return status;
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"Pet{" + 
-			"photoUrls = '" + photoUrls + '\'' + 
-			",name = '" + name + '\'' + 
-			",id = '" + id + '\'' + 
-			",category = '" + category + '\'' + 
-			",tags = '" + tags + '\'' + 
-			",status = '" + status + '\'' + 
-			"}";
-		}
+	public String toString() {
+		return
+				"Pet{" +
+						"photoUrls = '" + photoUrls + '\'' +
+						",name = '" + name + '\'' +
+						",id = '" + id + '\'' +
+						",category = '" + category + '\'' +
+						",tags = '" + tags + '\'' +
+						",status = '" + status + '\'' +
+						"}";
+	}
 }
